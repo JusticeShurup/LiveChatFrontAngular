@@ -1,0 +1,31 @@
+<div class="flex flex-col text-center max-w-md mx-auto">
+  <h1>Ваш профиль!</h1>
+  <p>{{this.user.firstName}}</p>
+  <p>{{this.user.lastName}}</p>
+</div>
+<form 
+[formGroup]="this.userUpdateForm"
+(ngSubmit)="this.updateUserProfile()"
+class="container flex justify-center text-center flex-col">
+  <div class="flex justify-center my-10">
+    <label class="input input-bordered flex items-center gap-2">
+      Ваше имя
+      <input formControlName="firstName" type="text" class="max-w-20" placeholder="" />
+    </label>
+  </div>
+  <div class="flex justify-center my-10">
+    <label class="input input-bordered flex items-center gap-2">
+      Ваша фамилия
+      <input formControlName="lastName" type="text" class="max-w-20" placeholder="" />
+    </label>
+  </div>
+  <div class="flex justify-center my-10">
+    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">
+      Фото вашего профиля
+    </label>
+    <input (change)="loadBase64FromImage($event)" type="file" class="file-input w-full max-w-xs" />
+  </div>
+  <div>
+    <button class="p-2 w-60 bg-white" type='submit'>Кнопка</button>
+  </div>
+</form>

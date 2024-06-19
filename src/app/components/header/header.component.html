@@ -1,0 +1,48 @@
+<header class="bg-white">
+    <nav class="flex justify-between items-center w-[92%] mx-auto">
+        <div>
+            <a class="text-black">LiveChat</a>
+        </div>
+        <div *ngIf="authService.isAuthSignal()" class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+            <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                <li>
+                    <a 
+                    class="hover:text-gray-500"
+                    routerLink="chat"
+                    routerLinkActive="text-gray-800"
+                    >Чат</a>
+                </li>
+                <li>
+                    <a 
+                    class="hover:text-gray-500" 
+                    routerLink="/profile"
+                    routerLinkActive="text-gray-800"
+                    [routerLinkActiveOptions]="{exact:true}"
+                    >Профиль
+                    </a>
+
+                </li>
+                <li>
+                    <a 
+                    class="hover:text-gray-500" 
+                    routerLink="contacts" 
+                    routerLinkActive="text-gray-800"
+                    >Контакты</a>
+                </li>
+                <li>
+                    <a 
+                    class="hover:text-gray-500" 
+                    routerLink="" 
+                    routerLinkActive="text-gray-800"
+                    [routerLinkActiveOptions]="{exact:true}"
+                    >Главная</a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex items-center gap-6">
+            <button *ngIf="!authService.isAuthSignal();" routerLink="login" class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Войти</button>
+            <button *ngIf="authService.isAuthSignal();" (click)="authService.logout()" class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Выйти</button>
+            <ion-icon (click)="onToggleMenu($event)" name={{iconName}} class="text-3xl cursor-pointer md:hidden"></ion-icon>
+        </div>
+    </nav>
+</header>

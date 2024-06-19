@@ -1,0 +1,9 @@
+<div *ngFor="let user of this.userService.usersSig()">
+  <div class="flex p-10">
+    <img class="rounded-full" src="data:image/jpeg;base64,{{user.avatarImage}}" width="100px" height="100px" alt="Image">
+    <div class="flex-col justify-center pl-2">
+      <p>{{user.firstName}} {{user.lastName}}</p>
+      <a routerLink="/profile">Написать сообщение</a>
+    </div>
+  </div>
+</div>
