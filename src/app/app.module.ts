@@ -8,10 +8,11 @@ import { IonicModule } from '@ionic/angular';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgModel, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    ContactsComponent
+    ContactsComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

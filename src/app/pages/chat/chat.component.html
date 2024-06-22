@@ -1,10 +1,23 @@
-<div class="grid grid-cols-2 gap-4">
-  <div class="flex border-red-600 border-s-8">
+<div class="grid grid-cols-4 gap-4 h-screen">
+  <div class="col-span-1 flex border-red-600 border-s-8">
     <h1>Контакты</h1>
   </div>
-  <div class="flex">
-    <h1>
-      Сообщения!
-    </h1>
+  <div class="flex col-span-2 md:col-span-3">
+    <div class="inline-block w-full bg-white my-10 mr-10 rounded-lg">
+      
+      <div class="h-5/6">
+        <div *ngFor="let message of this.chatService.messagesSig()">
+          <p>{{message.text}}</p>
+        </div>  
+      </div>
+
+      <div class="flex justify-center items-center h-1/6 bg-slate-400">
+        <form [formGroup]="messageData">
+          <input formControlName="messageText" class="w-1/2 h-1/4 rounded-lg" type="text">
+          <button class="pl-4 hover:bg-slate-700" (click)="sendMessage()">Отправить</button>
+        </form>
+      </div>
+
+    </div>
   </div>
 </div>
